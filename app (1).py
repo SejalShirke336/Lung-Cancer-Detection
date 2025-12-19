@@ -118,6 +118,10 @@ if st.button("🔍 Predict Lung Cancer"):
     if col_name in model_columns:
         data[col_name] = value
 
+def set_feature(col_name, value):
+    if col_name in model_columns:
+        data[col_name] = value
+
 set_feature("AGE", AGE)
 set_feature("GENDER_MALE", True if GENDER == "Male" else False)
 
@@ -134,7 +138,6 @@ set_feature("COUGHING", 1 if COUGHING == "Yes" else 0)
 set_feature("SHORTNESS OF BREATH", 1 if SHORTNESS_OF_BREATH == "Yes" else 0)
 set_feature("SWALLOWING DIFFICULTY", 1 if SWALLOWING_DIFFICULTY == "Yes" else 0)
 set_feature("CHEST PAIN", 1 if CHEST_PAIN == "Yes" else 0)
-
     prediction = model.predict(data)
 
     if prediction[0] == 1:
